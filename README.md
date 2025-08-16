@@ -1,6 +1,7 @@
 This project implements a market analysis agent powered by multiple tools, wrapped in a Flask API. The AIAgent compares brands, analyzes sentiment, retrieves insights from RAG, and performs external search queries.
 
 Architecture
+<img width="1126" height="560" alt="image" src="https://github.com/user-attachments/assets/c22fde48-754f-4c09-b36f-2c4f4ca73654" />
 
 
 Components
@@ -25,6 +26,8 @@ Components
    Short-term Memory: Keeps track of current session context, at user level 
    Long-term Memory (RAG): Stores brand details retrieved documents.
 
+5. Logging
+   log all user question and final response at each user X session level 
 
 Workflow
 1. User sends a query to the Flask endpoint.
@@ -35,6 +38,7 @@ Workflow
         Tavily Search → Fetches competitor brand information for which we dont have data in RAG database.
 4. Agent integrates results into a final response.
 5. Response returned via API.
+6. Log question and reponse
 
 Example
 curl -X POST http://127.0.0.1:5000/analyze -H "Content-Type: application/json" -d "{\"prompt\": \"Compare ____ with ____ shampoo based on reviews\"}"
